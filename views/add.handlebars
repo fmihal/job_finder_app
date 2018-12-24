@@ -1,0 +1,40 @@
+ <section id="add" class="container">
+    <div class="form-wrap">
+      <h1>Add A Job</h1>
+      <p>Your contact email will be shared with registered users to apply to your job post</p>
+        
+        {{#each errors}}
+            <div class="error">
+                {{text}}
+            </div>
+        {{/each}}
+
+      <form action="/jobs/add" method="POST">
+        <div class="input-group">
+          <label for="title">Job Title</label>
+          <input type="text" name="title" id="title" class="input-box" placeholder="Add job title..."
+            maxlength="100" value = {{title}}>
+        </div>
+        <div class="input-group">
+          <label for="technologies">Skills Needed</label>
+          <input type="text" name="skills" id="technologies" class="input-box" placeholder="Add skills that are needed..."
+          maxlength="100" value = {{ skills }}>
+        </div>
+        <div class="input-group">
+          <label for="budget"Payment (Leave blank for unknown)></label>
+          <input type="number" name="payment" id="budget" class="input-box" placeholder="eg. 500, 5000, 10000" value={{ payment }}>
+        </div>
+        <div class="input-group">
+          <label for="description">Job Description</label>
+          <textarea name="description" id="description" class="input-box" placeholder="Describe the details of the job posting..."
+            rows="10">{{description}}</textarea>
+        </div>
+        <div class="input-group">
+          <label for="budget">Contact Email</label>
+          <input type="email" name="contact_email" id="contactemail" class="input-box" placeholder="Enter an email"
+            value={{contact_email}}>
+        </div>
+        <input type="submit" value="Add Job" class="btn btn-reverse">
+      </form>
+    </div>
+  </section>
